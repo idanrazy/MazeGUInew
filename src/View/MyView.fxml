@@ -18,9 +18,9 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Load" />
+                        <MenuItem mnemonicParsing="false" text="New Maze" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Maze" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFIle" text="open File" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Options">
@@ -75,7 +75,7 @@
     <center>
         <Pane BorderPane.alignment="CENTER">
             <children>
-                <MazeDisplayer fx:id="mazeDisplay" height="300.0" wallFileNmae="./resources/wall.jpg" width="300" BorderPane.alignment="CENTER" />
+                <MazeDisplayer fx:id="mazeDisplay" height="400.0" wallFileNmae="./resources/wall.jpg" width="400" BorderPane.alignment="CENTER" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" top="5.0" />
