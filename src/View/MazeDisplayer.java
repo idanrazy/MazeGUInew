@@ -6,9 +6,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 /**
@@ -66,6 +63,7 @@ public class MazeDisplayer extends Canvas {
 
     }
 
+
     public String getWallFileNmae() {
         return wallFileNmae.get();
     }
@@ -76,5 +74,10 @@ public class MazeDisplayer extends Canvas {
 
     public void setWallFileNmae(String wallFileNmae) {
         this.wallFileNmae.set(wallFileNmae);
+    }
+
+    public void clear(){
+        GraphicsContext gc = getGraphicsContext2D();
+        gc.clearRect(this.getScaleX(),this.getLayoutY(),this.getBaselineOffset(),this.computeAreaInScreen());
     }
 }
