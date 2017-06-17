@@ -3,14 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="150" prefWidth="150" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewModel.MyViewModel">
+<BorderPane prefHeight="150" prefWidth="150" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewModel.Properties">
     <top>
     </top>
     <center>
@@ -18,45 +18,27 @@
 
     </center>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="my_Vbox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="maze algorithm " />
-            <CheckBox mnemonicParsing="false" text="Simple Maze">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="My Maze">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <Label text="solve algorithm" />
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox mnemonicParsing="false" text="CheckBox">
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <Label text="Maze size" />
-            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+            <Label text="maze algorithm:" />
+            <ChoiceBox fx:id="gen" />
+            <Label text="solve algorithm:" />
+            <ChoiceBox fx:id="solv" />
+            <Label text="Maze size:" />
+            <HBox fillHeight="false" prefHeight="100.0" prefWidth="200.0" snapToPixel="false" VBox.vgrow="NEVER">
                <children>
                   <Label prefWidth="40.0" text="row" />
-                  <TextField prefHeight="25.0" prefWidth="60.0" HBox.hgrow="NEVER">
+                  <TextField fx:id="text_row" prefHeight="25.0" prefWidth="60.0" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+            <HBox fillHeight="false" prefHeight="100.0" prefWidth="200.0" snapToPixel="false" VBox.vgrow="NEVER">
                <children>
-                  <Label prefWidth="40.0" text="column" />
-                  <TextField prefWidth="60.0">
+                  <Label prefWidth="40.0" snapToPixel="false" text="column" />
+                  <TextField  fx:id="text_col" prefWidth="60.0">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -66,7 +48,15 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </HBox>
-            <Button mnemonicParsing="false" text="save changes" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="save" mnemonicParsing="false" text="save changes" />
+                  <Button fx:id="cancel" onAction="#handle" alignment="CENTER_LEFT" mnemonicParsing="false" text="cancel ">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </center>

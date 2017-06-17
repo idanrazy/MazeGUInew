@@ -7,15 +7,10 @@ import algorithms.mazeGenerators.MyMazeGenerator;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
@@ -30,10 +25,11 @@ public class MyViewModel implements Initializable {
      @FXML
      public javafx.scene.control.TextField text_row;
      public Button start_but;
-     public javafx.scene.control.Button stop_but;
+     public Button stop_but;
      public MenuItem prop;
     MyMazeGenerator maze=new MyMazeGenerator();
     Maze m;
+    Properties myProp ;
 
     //not happen just when initilaize, also we can call to initilize when we need
     @Override
@@ -43,17 +39,14 @@ public class MyViewModel implements Initializable {
 
     }
 
-    public void start(ActionEvent event) {
+    public void start() {
 
          m= maze.generate(Integer.parseInt(text_row.getText()),Integer.parseInt(text_col.getText()));
         mazeDisplay.setMazeData(m.getMaze());
         start_but.setDisable(true);
-        if(event.getSource()==start_but)
-            start_but.setDisable(false);
-
-        
 
     }
+
 
     public void openFIle() {
         FileChooser fc = new FileChooser();
@@ -100,6 +93,7 @@ public class MyViewModel implements Initializable {
     }
     public void stop(){
         mazeDisplay.clear();
+        start_but.setDisable(false);
 
     }
 
@@ -108,17 +102,24 @@ public class MyViewModel implements Initializable {
         System.exit(0);
     }
     public void properties(ActionEvent event) throws Exception{
-
+/*
         Stage stage = new Stage();
         Parent root;
         if(event.getSource()==prop){
         root = FXMLLoader.load(getClass().getResource("../View/Properties.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Properties");
+        */
+        myProp = new Properties();
+        myProp.initialize();
+        /*
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+
         }
+        */
     }
+
 
 }
