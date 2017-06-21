@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.112" onKeyPressed="#KeyPressed" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New Maze" />
+                        <MenuItem mnemonicParsing="false" text="New Maze" onAction="#start" />
                         <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Maze" />
                         <MenuItem mnemonicParsing="false" onAction="#openFIle" text="open File" />
                         <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
@@ -34,12 +34,12 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="Guide" onAction="#help" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="About">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="About" onAction="#about" />
                     </items>
                 </Menu>
             </menus>
@@ -51,7 +51,7 @@
             <HBox prefHeight="35.0" prefWidth="100.0">
                <children>
                   <Label maxWidth="-Infinity" prefHeight="27.0" prefWidth="75.0" text="maze row" />
-                  <TextField fx:id="text_row" alignment="CENTER" disable="false" prefHeight="39.0" prefWidth="63.0" text="50">
+                  <TextField fx:id="text_row" alignment="CENTER" disable="false" prefHeight="39.0" prefWidth="63.0" text="20">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></TextField>
@@ -63,7 +63,7 @@
             <HBox prefHeight="35.0" prefWidth="200.0">
                <children>
                   <Label prefHeight="27.0" prefWidth="75.0" text="maze column" />
-                  <TextField fx:id="text_col" alignment="CENTER" disable="false" prefHeight="39.0" prefWidth="63.0" text="50">
+                  <TextField fx:id="text_col" alignment="CENTER" disable="false" prefHeight="39.0" prefWidth="63.0" text="20">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -72,10 +72,15 @@
                </children></HBox>
                 <Button fx:id="start_but" mnemonicParsing="false" onAction="#start" prefHeight="39.0" prefWidth="77.0" text="Start" />
                 <Button fx:id="stop_but" mnemonicParsing="false" onAction="#stop" prefHeight="39.0" prefWidth="78.0" text="Stop" />
-                
+                <Button fx:id="solve_but" mnemonicParsing="false" disable="true" onAction="#Solve" prefHeight="39.0" prefWidth="78.0" text="Solve" />
+                <Label text="Char row:" />
+                <Label text="Char column:"/>
+                <Label text="${controller.characterRow}"   />
+                <Label text="${controller.characterColumn}" />
+
             </children>
             <BorderPane.margin>
-                <Insets />
+                <Insets/>
             </BorderPane.margin>
         </VBox>
     </left>
